@@ -13,14 +13,24 @@ Start with [SKILL.md](SKILL.md): it routes a task to the one or two files it nee
 | `components/` | Each component: when to use it, its spec values, its guidelines, accessibility, and the sources |
 | `patterns/` | Choosing a component, placing feedback, forms, adaptive layouts, anti-patterns |
 | `sources/` | The snapshot every rule is checked against ([SNAPSHOT](sources/SNAPSHOT.md)) |
-| `scripts/` | `refresh-*` take a new snapshot; `validate.mjs` checks the rules against the source contract |
+| `scripts/` | `refresh-*` take a new snapshot; `validate.mjs` checks the rules against the source contract; `sync.mjs` copies a tagged version into a project |
 | `tests/cases/` | Tasks for checking an agent against the rules |
 
 These rules are **project-neutral**. They don't name a component library, a theme's colours, a typeface or a product's screens. A project keeps those choices, and any approved departures from the spec, in its own rule files.
 
 ## Using it in a project
 
-Copy a tagged version into the project (for example `docs/rules/m3/`) and point the project's agent instructions at its `SKILL.md`. Update by copying a newer tag; don't edit the copy.
+Copy a tagged version into the project with the sync script, from a clone of this repo:
+
+```sh
+npm run sync -- ../my-project                 # the latest tag, into ../my-project/docs/rules/m3
+npm run sync -- ../my-project --ref v0.2.0    # a given tag
+npm run sync -- ../my-project --dir docs/m3   # another folder
+```
+
+It copies `SKILL.md`, `foundations/`, `components/`, `patterns/`, `sources/`, `LICENSE` and `NOTICE.md` as they are at the tag, not the working tree, and writes `.m3-rules.json` with the tag, the commit and the file list. Running it again with a newer tag replaces those files and removes the ones the new tag dropped; other files in the folder stay. It refuses a folder it didn't create.
+
+Point the project's agent instructions at the copied `SKILL.md`. Don't edit the copy: project choices and approved departures from the spec go in the project's own rule files.
 
 ## Working on it
 

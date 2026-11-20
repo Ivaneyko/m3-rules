@@ -40,4 +40,4 @@ Elevation is the distance between two surfaces on the z-axis. Material has six l
 
 ## Scrims
 
-A scrim goes **under modals and expanded navigation menus** to focus attention on them. It uses the `scrim` colour role at **32%** opacity ([scrims](../sources/m3/styles_elevation.md#scrims); `ContainerOpacity 0.32` in [component tokens → Scrim](../sources/tokens/component-tokens.md#scrim--version-v0_117)).
+A scrim goes **under modals and expanded navigation menus** to focus attention on them. It uses the `scrim` colour role at **32%** opacity ([scrims](../sources/m3/styles_elevation.md#scrims); `ContainerOpacity 0.32` in [ScrimTokens](../sources/tokens/component-tokens.md#scrimtokens)).

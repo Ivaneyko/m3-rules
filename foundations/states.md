@@ -39,7 +39,7 @@ A container that holds actions doesn't take a state as a whole; its actionable c
 
 ([states → applying states](../sources/m3/foundations_interaction_states.md#enabled))
 
-Open: the focused row's source lists cards both among the components that take focus and among those that don't. It doesn't say which cards; check the [cards page](../sources/m3/components_cards.md) for the card in question.
+A card takes hover, focus and press only when it is **directly actionable** as a whole; a card that holds actions (buttons, links) doesn't, and its actions do ([cards → accessibility](../sources/m3/components_cards.md#interaction--style)). That explains why the states page lists cards on both sides of the focused row.
 
 ## Disabled
 
