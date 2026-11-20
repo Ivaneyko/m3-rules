@@ -115,6 +115,7 @@ M3 Expressive adds the **expressive list**, recommended for new designs, in **st
 - **Standard**: supplementary content or actions beside the main content (filters, details), mostly on **medium and expanded** windows; stays while the content is used, and the content area shrinks to make room. **Modal** on compact; it must be closed to use the content ([side sheets → usage](../sources/m3/components_side-sheets.md#usage), [adaptive design](../sources/m3/components_side-sheets.md#adaptive-design)).
 - At the **trailing edge** (left in RTL), full height, fixed width (**400** max as a third pane, [foundations → layout](../foundations/layout.md#panes)); may be inset **16** from the edges, no more ([usage](../sources/m3/components_side-sheets.md#usage)).
 - A **close icon button** is highly recommended; a back button for a second level; a divider above action buttons or between kinds of content ([anatomy](../sources/m3/components_side-sheets.md#anatomy)).
+- **Bottom actions**: 72 high, 16 above and 24 below, aligned to the **start** (left in left-to-right) ([side sheets → modal side sheet measurements](../sources/m3/components_side-sheets.md#modal-side-sheet-measurements)).
 - **Scrolls vertically on its own, never horizontally** ([behavior](../sources/m3/components_side-sheets.md#behavior)).
 - Elevation: standard (docked) 0, modal 1 ([foundations → elevation](../foundations/elevation.md#levels)).
 
