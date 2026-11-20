@@ -40,7 +40,18 @@ M3 publishes exact values, and a plausible number that isn't M3's looks exactly 
 2. **The order of sources**: the m3.material.io page (`sources/m3/`), then the Compose tokens (`sources/tokens/`) for values the page shows only in a picture. When they disagree, the rule says so and names both.
 3. **What the sources don't settle is written as open**, never filled in with a guess.
 4. **When a source changes**, `npm run refresh` takes a new snapshot; every rule file whose sources changed is checked again and gets a new `Sources read` date.
-5. If these rules don't answer a question, read the page in `sources/m3/` (or on m3.material.io, in a browser: the site draws its text with JavaScript) before answering.
+
+## Reading sources
+
+The rule files in `foundations/`, `components/` and `patterns/` answer a task; `sources/` (about 46,000 lines) is the evidence behind them, not something to read. In a project that uses these rules:
+
+1. **Answer from the rule files.** Don't open `sources/` to repeat what a rule already says.
+2. **Ask before opening `sources/`.** When a rule leaves the question open, a value looks wrong, or no rule covers it, stop and ask the user first, naming the exact file and section and why: "The rules don't give the tabs divider's colour for dark mode. May I read `sources/m3/components_tabs.md` → *Primary tabs color*?" Wait for a yes.
+3. **Read only that section**: find its heading with a search, then read its lines. Never a whole page, never the whole folder, never a search across all of `sources/` without asking.
+4. **Say what you read**: an answer that used `sources/` ends with a line `Sources read: <file> → <section>, …`. When the section changes the answer, say which rule file should be fixed in m3-rules.
+5. When the sources don't settle it either, say so instead of guessing; the page on m3.material.io (in a browser: the site draws its text with JavaScript) is the last resort, also asked for first.
+
+Working on this repo itself (writing or checking a rule) reads the sources it cites without asking; rules 3 and 4 still apply.
 
 ## M3 Expressive at a glance
 
