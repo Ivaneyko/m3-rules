@@ -3,7 +3,7 @@
 //   - SKILL.md has `name` and `description` frontmatter;
 //   - every rule file (foundations/, components/, patterns/) has a `Sources read: YYYY-MM-DD` line
 //     and cites at least one file in sources/;
-//   - every relative link in a rule or top-level file points at a file that exists, and a `#anchor`
+//   - every relative link in a rule, test case or top-level file points at a file that exists, and a `#anchor`
 //     at a heading in it.
 //
 //   node scripts/validate.mjs
@@ -38,9 +38,15 @@ function slug(heading) {
 function anchorsOf(file) {
   const text = readFileSync(file, 'utf8');
   const anchors = new Set();
+  const seen = new Map();
   for (const line of text.split('\n')) {
     const m = line.match(/^#{1,6}\s+(.*)$/);
-    if (m) anchors.add(slug(m[1]));
+    if (!m) continue;
+    // A repeated heading gets -1, -2… on GitHub, in order.
+    const base = slug(m[1]);
+    const count = seen.get(base) ?? 0;
+    anchors.add(count ? `${base}-${count}` : base);
+    seen.set(base, count + 1);
   }
   for (const m of text.matchAll(/<a id="([^"]+)"/g)) anchors.add(m[1]);
   return anchors;
@@ -79,6 +85,8 @@ for (const name of TOP) {
   const file = join(ROOT, name);
   if (existsSync(file)) checkLinks(file);
 }
+
+for (const file of markdownIn('tests')) checkLinks(file);
 
 for (const file of RULE_DIRS.flatMap(markdownIn)) {
   const text = readFileSync(file, 'utf8');

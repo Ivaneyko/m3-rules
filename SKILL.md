@@ -13,13 +13,24 @@ Read this file, then **only the files your task touches**.
 
 | You are… | Read |
 | --- | --- |
-| laying out a screen: spacing, breakpoints, panes, colour roles, type, shape, elevation, motion, icons, accessibility | `foundations/` (issue #2) |
-| working with a button, icon button, button group, split button or FAB | `components/actions.md` (issue #3) |
-| working with a card, list, divider, carousel, dialog, bottom or side sheet | `components/containment.md` (issue #3) |
-| working with a snackbar, tooltip, badge, progress or loading indicator | `components/feedback.md` (issue #3) |
-| working with a text field, checkbox, radio button, switch, chip, menu, slider, search, date or time picker | `components/inputs.md` (issue #3) |
-| working with an app bar, navigation bar, navigation rail, tabs or a toolbar | `components/navigation.md` (issue #3) |
-| choosing a component for a task, placing a message, building a form or an adaptive layout, or reviewing UI | `patterns/` (issue #4) |
+| using a state (hover, focus, pressed, dragged, disabled) or showing selection | [foundations/states.md](foundations/states.md) |
+| choosing colour roles, outlines or surfaces, or adding a brand or extra colour | [foundations/color.md](foundations/color.md) |
+| setting type: the type scale, emphasized styles, typefaces, web units | [foundations/typography.md](foundations/typography.md) |
+| choosing corner radii, nesting shapes, or using expressive shapes | [foundations/shape.md](foundations/shape.md) |
+| choosing elevation, shadows or a scrim | [foundations/elevation.md](foundations/elevation.md) |
+| animating: springs, their CSS curves, easing, durations, transitions, reduced motion | [foundations/motion.md](foundations/motion.md) |
+| laying out a screen: breakpoints, panes, canonical layouts, spacing, density | [foundations/layout.md](foundations/layout.md) |
+| using icons, sizing targets, contrast, landmarks, headings, focus order, accessibility labels | [foundations/icons-and-accessibility.md](foundations/icons-and-accessibility.md) |
+| working with a button, icon button, button group, split button or FAB | [components/actions.md](components/actions.md) |
+| working with a card, list, divider, carousel, dialog, bottom or side sheet | [components/containment.md](components/containment.md) |
+| working with a snackbar, tooltip, badge, progress or loading indicator | [components/feedback.md](components/feedback.md) |
+| working with a text field, checkbox, radio button, switch, chip, menu, slider, search, date or time picker | [components/inputs.md](components/inputs.md) |
+| working with an app bar, navigation bar, navigation rail, tabs or a toolbar | [components/navigation.md](components/navigation.md) |
+| choosing a component for a task | [patterns/component-selection.md](patterns/component-selection.md) |
+| placing a field error, snackbar, dialog or wait indicator | [patterns/feedback-placement.md](patterns/feedback-placement.md) |
+| building a form: fields, labels, required fields, errors, submitting | [patterns/forms.md](patterns/forms.md) |
+| making a screen work across window sizes | [patterns/adaptive-layouts.md](patterns/adaptive-layouts.md) |
+| reviewing UI against M3 (a checklist of mistakes) | [patterns/anti-patterns.md](patterns/anti-patterns.md) |
 
 ## Source contract
 
