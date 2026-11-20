@@ -9,7 +9,7 @@
   },
   "scripts": {
     "refresh:pages": "node scripts/refresh-m3.cjs pages sources/m3",
-    "refresh:tokens": "node scripts/refresh-tokens.cjs && node scripts/refresh-base-tokens.mjs",
+    "refresh:tokens": "node scripts/refresh-tokens.mjs && node scripts/refresh-base-tokens.mjs",
     "refresh": "npm run refresh:pages && npm run refresh:tokens",
     "validate": "node scripts/validate.mjs"
   }
