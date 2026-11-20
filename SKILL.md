@@ -28,7 +28,8 @@ Read this file, then **only the files your task touches**.
 | working with an app bar, navigation bar, navigation rail, tabs or a toolbar | [components/navigation.md](components/navigation.md) |
 | choosing a component for a task | [patterns/component-selection.md](patterns/component-selection.md) |
 | placing a field error, snackbar, dialog or wait indicator | [patterns/feedback-placement.md](patterns/feedback-placement.md) |
-| building a form or an adaptive layout, or reviewing UI | `patterns/` (issue #4) |
+| building a form: fields, labels, required fields, errors, submitting | [patterns/forms.md](patterns/forms.md) |
+| building an adaptive layout, or reviewing UI | `patterns/` (issue #4) |
 
 ## Source contract
 
