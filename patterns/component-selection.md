@@ -1,6 +1,6 @@
 # Choosing a component for a task
 
-Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). This file picks the component; the component file then gives its values and rules. Where a message goes (field error, snackbar, dialog) is in the feedback placement rules.
+Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). This file picks the component; the component file then gives its values and rules. Where a message goes (field error, snackbar, dialog) is in [feedback placement](feedback-placement.md).
 
 ## Actions, by emphasis
 
