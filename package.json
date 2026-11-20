@@ -1,0 +1,17 @@
+{
+  "name": "m3-rules",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Material 3 Expressive rules for AI coding agents and people, sourced from m3.material.io",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "refresh:pages": "node scripts/refresh-m3.cjs pages sources/m3",
+    "refresh:tokens": "node scripts/refresh-tokens.mjs && node scripts/refresh-base-tokens.mjs",
+    "refresh": "npm run refresh:pages && npm run refresh:tokens",
+    "validate": "node scripts/validate.mjs",
+    "sync": "node scripts/sync.mjs"
+  }
+}
