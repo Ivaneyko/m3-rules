@@ -2,7 +2,7 @@
 
 Every dp/sp measurement, shape assignment, and elevation level for M3 components, from the
 **generated `androidx.compose.material3.tokens` files** (the `md.comp.*` token set expressed in
-Kotlin). Use this when `components/*.md` records a measurement as a gap — m3.material.io publishes
+Kotlin). Use this for a value a page in sources/m3/ shows only in a picture — m3.material.io publishes
 many of these only inside images, so this is the machine-readable source for them.
 
 **Provenance matters.** These are the *Compose* token values. They are authoritative for
@@ -17,13 +17,12 @@ ExtraLarge 28 · ExtraLargeIncreased 32 · ExtraExtraLarge 48 · Full = fully ro
 Elevation levels resolve as: Level0 0dp · Level1 1dp · Level2 3dp · Level3 6dp · Level4 8dp ·
 Level5 12dp.
 
-Refresh with: `node scripts/refresh-component-tokens.js`
+Refresh with: `node scripts/refresh-tokens.cjs`
 
 ---
 
 ## Buttons
 
-Design guidance for these lives in `components/buttons.md`.
 
 ### BaselineButton  *(VERSION v0_11_0)*
 
@@ -155,7 +154,6 @@ Design guidance for these lives in `components/buttons.md`.
 
 ## Navigation
 
-Design guidance for these lives in `components/navigation.md`.
 
 ### NavigationDrawer  *(VERSION v0_210)*
 
@@ -171,7 +169,6 @@ Design guidance for these lives in `components/navigation.md`.
 
 ## Containment
 
-Design guidance for these lives in `components/containment.md`.
 
 ### FilledCard  *(VERSION v0_210)*
 
@@ -218,7 +215,6 @@ Design guidance for these lives in `components/containment.md`.
 
 ## Input and selection
 
-Design guidance for these lives in `components/input.md`.
 
 ### Checkbox  *(VERSION 14_1_0)*
 
@@ -350,7 +346,6 @@ Design guidance for these lives in `components/input.md`.
 
 ## Feedback and overlays
 
-Design guidance for these lives in `components/feedback.md`.
 
 ### StandardMenu  *(VERSION 24.1.2)*
 
@@ -383,7 +378,6 @@ Design guidance for these lives in `components/feedback.md`.
 
 ## Interaction states
 
-Design guidance for these lives in `interaction.md`.
 
 ### State  *(VERSION v0_210)*
 

@@ -129,7 +129,7 @@ function extract(src) {
   L.push('');
   L.push('Every dp/sp measurement, shape assignment, and elevation level for M3 components, from the');
   L.push('**generated `androidx.compose.material3.tokens` files** (the `md.comp.*` token set expressed in');
-  L.push('Kotlin). Use this when `components/*.md` records a measurement as a gap — m3.material.io publishes');
+  L.push('Kotlin). Use this for a value a page in sources/m3/ shows only in a picture — m3.material.io publishes');
   L.push('many of these only inside images, so this is the machine-readable source for them.');
   L.push('');
   L.push('**Provenance matters.** These are the *Compose* token values. They are authoritative for');
@@ -144,7 +144,7 @@ function extract(src) {
   L.push('Elevation levels resolve as: Level0 0dp · Level1 1dp · Level2 3dp · Level3 6dp · Level4 8dp ·');
   L.push('Level5 12dp.');
   L.push('');
-  L.push('Refresh with: `node scripts/refresh-component-tokens.js`');
+  L.push('Refresh with: `node scripts/refresh-tokens.cjs`');
   L.push('');
   L.push('---');
 
@@ -166,7 +166,6 @@ function extract(src) {
     L.push('');
     L.push('## ' + family);
     L.push('');
-    L.push('Design guidance for these lives in `' + ref + '`.');
     present.forEach(emit);
   }
 

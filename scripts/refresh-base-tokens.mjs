@@ -13,6 +13,7 @@ const ROOT = 'https://raw.githubusercontent.com/androidx/androidx/androidx-main/
 const FILES = [
   'tokens/TypeScaleTokens.kt',
   'tokens/TypographyKeyTokens.kt',
+  'tokens/TypefaceTokens.kt',
   'tokens/ShapeTokens.kt',
   'tokens/ElevationTokens.kt',
   'tokens/MotionTokens.kt',

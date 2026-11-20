@@ -38,9 +38,15 @@ function slug(heading) {
 function anchorsOf(file) {
   const text = readFileSync(file, 'utf8');
   const anchors = new Set();
+  const seen = new Map();
   for (const line of text.split('\n')) {
     const m = line.match(/^#{1,6}\s+(.*)$/);
-    if (m) anchors.add(slug(m[1]));
+    if (!m) continue;
+    // A repeated heading gets -1, -2… on GitHub, in order.
+    const base = slug(m[1]);
+    const count = seen.get(base) ?? 0;
+    anchors.add(count ? `${base}-${count}` : base);
+    seen.set(base, count + 1);
   }
   for (const m of text.matchAll(/<a id="([^"]+)"/g)) anchors.add(m[1]);
   return anchors;

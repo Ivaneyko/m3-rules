@@ -13,7 +13,14 @@ Read this file, then **only the files your task touches**.
 
 | You are… | Read |
 | --- | --- |
-| laying out a screen: spacing, breakpoints, panes, colour roles, type, shape, elevation, motion, icons, accessibility | `foundations/` (issue #2) |
+| using a state (hover, focus, pressed, dragged, disabled) or showing selection | [foundations/states.md](foundations/states.md) |
+| choosing colour roles, outlines or surfaces, or adding a brand or extra colour | [foundations/color.md](foundations/color.md) |
+| setting type: the type scale, emphasized styles, typefaces, web units | [foundations/typography.md](foundations/typography.md) |
+| choosing corner radii, nesting shapes, or using expressive shapes | [foundations/shape.md](foundations/shape.md) |
+| choosing elevation, shadows or a scrim | [foundations/elevation.md](foundations/elevation.md) |
+| animating: springs, their CSS curves, easing, durations, transitions, reduced motion | [foundations/motion.md](foundations/motion.md) |
+| laying out a screen: breakpoints, panes, canonical layouts, spacing, density | [foundations/layout.md](foundations/layout.md) |
+| using icons, sizing targets, contrast, landmarks, headings, focus order, accessibility labels | [foundations/icons-and-accessibility.md](foundations/icons-and-accessibility.md) |
 | working with a button, icon button, button group, split button or FAB | `components/actions.md` (issue #3) |
 | working with a card, list, divider, carousel, dialog, bottom or side sheet | `components/containment.md` (issue #3) |
 | working with a snackbar, tooltip, badge, progress or loading indicator | `components/feedback.md` (issue #3) |
