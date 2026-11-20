@@ -30,7 +30,7 @@ Read this file, then **only the files your task touches**.
 | placing a field error, snackbar, dialog or wait indicator | [patterns/feedback-placement.md](patterns/feedback-placement.md) |
 | building a form: fields, labels, required fields, errors, submitting | [patterns/forms.md](patterns/forms.md) |
 | making a screen work across window sizes | [patterns/adaptive-layouts.md](patterns/adaptive-layouts.md) |
-| reviewing UI | `patterns/` (issue #4) |
+| reviewing UI against M3 (a checklist of mistakes) | [patterns/anti-patterns.md](patterns/anti-patterns.md) |
 
 ## Source contract
 
