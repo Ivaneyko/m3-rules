@@ -22,7 +22,7 @@ Read this file, then **only the files your task touches**.
 | laying out a screen: breakpoints, panes, canonical layouts, spacing, density | [foundations/layout.md](foundations/layout.md) |
 | using icons, sizing targets, contrast, landmarks, headings, focus order, accessibility labels | [foundations/icons-and-accessibility.md](foundations/icons-and-accessibility.md) |
 | working with a button, icon button, button group, split button or FAB | [components/actions.md](components/actions.md) |
-| working with a card, list, divider, carousel, dialog, bottom or side sheet | `components/containment.md` (issue #3) |
+| working with a card, list, divider, carousel, dialog, bottom or side sheet | [components/containment.md](components/containment.md) |
 | working with a snackbar, tooltip, badge, progress or loading indicator | `components/feedback.md` (issue #3) |
 | working with a text field, checkbox, radio button, switch, chip, menu, slider, search, date or time picker | `components/inputs.md` (issue #3) |
 | working with an app bar, navigation bar, navigation rail, tabs or a toolbar | `components/navigation.md` (issue #3) |
