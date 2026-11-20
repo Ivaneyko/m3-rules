@@ -26,7 +26,8 @@ Read this file, then **only the files your task touches**.
 | working with a snackbar, tooltip, badge, progress or loading indicator | [components/feedback.md](components/feedback.md) |
 | working with a text field, checkbox, radio button, switch, chip, menu, slider, search, date or time picker | [components/inputs.md](components/inputs.md) |
 | working with an app bar, navigation bar, navigation rail, tabs or a toolbar | [components/navigation.md](components/navigation.md) |
-| choosing a component for a task, placing a message, building a form or an adaptive layout, or reviewing UI | `patterns/` (issue #4) |
+| choosing a component for a task | [patterns/component-selection.md](patterns/component-selection.md) |
+| placing a message, building a form or an adaptive layout, or reviewing UI | `patterns/` (issue #4) |
 
 ## Source contract
 
