@@ -30,7 +30,7 @@ npm run sync -- ../my-project --dir docs/m3   # another folder
 
 It copies `SKILL.md`, `foundations/`, `components/`, `patterns/`, `sources/`, `LICENSE` and `NOTICE.md` as they are at the tag, not the working tree, and writes `.m3-rules.json` with the tag, the commit and the file list. Running it again with a newer tag replaces those files and removes the ones the new tag dropped; other files in the folder stay. It refuses a folder it didn't create.
 
-Point the project's agent instructions at the copied `SKILL.md`. Don't edit the copy: project choices and approved departures from the spec go in the project's own rule files.
+Point the project's agent instructions at the copied `SKILL.md`. The agent answers from the rule files and asks you before it opens anything in `sources/`, naming the file and section ([SKILL → Reading sources](SKILL.md#reading-sources)). Don't edit the copy: project choices and approved departures from the spec go in the project's own rule files.
 
 ## Working on it
 

@@ -9,5 +9,6 @@ Each case is a task to give an agent that has loaded this repo's `SKILL.md`, and
 | [navigation.md](navigation.md) | Store navigation across window sizes, two sections, page actions, catalogue categories |
 | [actions-and-content.md](actions-and-content.md) | Product page buttons, delete confirmation, filtering a grid, a product grid on phone and desktop |
 | [review.md](review.md) | Reviewing a screen with planted mistakes, a value the sources disagree on |
+| [sources.md](sources.md) | A question the rules cover, a question they leave open (asking before reading `sources/`) |
 
 When a rule changes, update the cases that link it; `node scripts/validate.mjs` checks the links.
