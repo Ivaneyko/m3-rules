@@ -3,7 +3,7 @@
 //   - SKILL.md has `name` and `description` frontmatter;
 //   - every rule file (foundations/, components/, patterns/) has a `Sources read: YYYY-MM-DD` line
 //     and cites at least one file in sources/;
-//   - every relative link in a rule or top-level file points at a file that exists, and a `#anchor`
+//   - every relative link in a rule, test case or top-level file points at a file that exists, and a `#anchor`
 //     at a heading in it.
 //
 //   node scripts/validate.mjs
@@ -85,6 +85,8 @@ for (const name of TOP) {
   const file = join(ROOT, name);
   if (existsSync(file)) checkLinks(file);
 }
+
+for (const file of markdownIn('tests')) checkLinks(file);
 
 for (const file of RULE_DIRS.flatMap(markdownIn)) {
   const text = readFileSync(file, 'utf8');
