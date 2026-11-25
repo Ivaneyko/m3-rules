@@ -10,7 +10,7 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 | Filled | `surface-container-highest` | 0 | — | 12 |
 | Outlined | `surface` | 0 | 1, `outline-variant` | 12 |
 
-Icons 24, `primary` (*tokens* `ElevatedCardTokens`, `FilledCardTokens`, `OutlinedCardTokens`).
+Icons 24, `primary` (*tokens* `ElevatedCardTokens`, `FilledCardTokens`, `OutlinedCardTokens`). Side padding **16**; at most **8** between cards ([cards → measurements](../sources/m3/components_cards.md#measurements)).
 
 - **For content and actions about one subject**, easy to scan, with a clear hierarchy; can lead into more detail ([cards → usage](../sources/m3/components_cards.md#usage)).
 - **Don't force content into cards** when spacing, headings or dividers give a simpler hierarchy ([same](../sources/m3/components_cards.md#usage)).
@@ -55,6 +55,14 @@ M3 Expressive adds the **expressive list**, recommended for new designs, in **st
 
 1 thick, `outline-variant` (*tokens* `DividerTokens`).
 
+| Divider | Start margin | End margin |
+| --- | --- | --- |
+| Full width | 0 | 0 |
+| Inset | 16 | 0 |
+| Middle inset | 16 | 16 |
+
+4 between a divider and its supporting text. The page also lists a right margin of 8 and a bottom margin of 8 without saying which divider they belong to ([divider → measurements](../sources/m3/components_divider.md#measurements)).
+
 - **Full width** between larger, unrelated sections, or between interactive and non-interactive areas (in a card); **inset** between related items, aligned with their leading element (an icon or avatar) ([divider → full-width](../sources/m3/components_divider.md#full-width-dividers), [inset](../sources/m3/components_divider.md#inset-dividers)).
 - Use them **sparingly**; too many clutter the screen ([full-width dividers](../sources/m3/components_divider.md#full-width-dividers)).
 
@@ -68,6 +76,14 @@ M3 Expressive adds the **expressive list**, recommended for new designs, in **st
 | Full-screen | Vertical, immersive feeds; portrait on compact and medium only | Snap only |
 
 ([carousel → usage](../sources/m3/components_carousel.md#usage))
+
+| Layout | Padding | Between items | Item corners | Small items |
+| --- | --- | --- | --- | --- |
+| Multi-browse, hero, center-aligned hero | 16 at the sides, 8 top and bottom | 8 | 28 | 40–56 wide |
+| Uncontained (and multi-aspect ratio) | 16 at the leading edge only, 8 top and bottom | 8 | 28 | — |
+| Full-screen | 0 | 16 | — | — |
+
+Items are vertically centred (centred in full-screen); large and medium items are dynamic in width ([carousel → multi-browse measurements](../sources/m3/components_carousel.md#measurements), [full-screen measurements](../sources/m3/components_carousel.md#measurements-5)).
 
 - Items are fully visible except in the uncontained layout ([usage](../sources/m3/components_carousel.md#usage)); items are `surface` ([specs → color](../sources/m3/components_carousel.md#color)).
 - **On a vertically scrolling page, all items must be reachable without scrolling sideways**: a **Show all** button below it, or an arrow icon button beside its header, opening a vertical page of every item. Don't add arrows or icons inside or beside the carousel. Not needed for full-screen carousels ([accessibility requirements on scrolling pages](../sources/m3/components_carousel.md#accessibility-requirements-on-scrolling-pages), [requirements on scrolling pages](../sources/m3/components_carousel.md#requirements-on-scrolling-pages)).
@@ -88,7 +104,7 @@ M3 Expressive adds the **expressive list**, recommended for new designs, in **st
 - **For critical information or a decision that blocks the app's normal use**, sparingly. **Low or medium priority is a snackbar**, a choice without interruption a menu ([usage](../sources/m3/components_dialogs.md#usage), [similar components](../sources/m3/components_dialogs.md#similar-components)).
 - **Headline**: a brief, clear statement or question; **no apologies, no "Warning!", no "Are you sure?"** ([headline](../sources/m3/components_dialogs.md#headline-optional)).
 - **Buttons** at the **trailing edge**, the **confirming action nearest the edge**, the dismissing one before it. **At most two**: one alone only to acknowledge; two means confirm and dismiss. A confirming action may be disabled until a choice is made; **a dismissing action never is**. **No third action** (Learn more): expand inline instead. Stacked buttons put the confirming one on top ([buttons](../sources/m3/components_dialogs.md#buttons)).
-- **Full-screen dialog**: for a series of tasks (a new calendar event), forms with keyboard input, changes not saved instantly, or content that opens more dialogs. **Compact only**; medium and up use a basic dialog. Save confirms; the close X (the app bar's only navigation) or Cancel dismisses, and closing with unsaved changes asks in a basic dialog. The confirm label says what happens (Send, Create), never Done, OK or Close ([full-screen dialog](../sources/m3/components_dialogs.md#full-screen-dialog), [navigation](../sources/m3/components_dialogs.md#navigation)).
+- **Full-screen dialog**: for a series of tasks (a new calendar event), forms with keyboard input, changes not saved instantly, or content that opens more dialogs. **Compact only**; medium and up use a basic dialog. Save confirms; the close X (the app bar's only navigation) or Cancel dismisses, and closing with unsaved changes asks in a basic dialog. The confirm label says what happens (Send, Create), never Done, OK or Close ([full-screen dialog](../sources/m3/components_dialogs.md#full-screen-dialog), [navigation](../sources/m3/components_dialogs.md#navigation)). Sizes: corners 0, at most 560 wide; header 56 with a start-aligned headline and a 24 close icon; a bottom action bar 56 high across the full width; dividers 1; 24 padding at the top and sides, 8 between elements ([full-screen dialog measurements](../sources/m3/components_dialogs.md#full-screen-dialog-measurements)).
 - **Errors**: field errors inline, all at once; general errors (network) in a basic dialog when confirming fails ([error messages](../sources/m3/components_dialogs.md#error-messages)).
 - **Position**: centred by default; on larger windows it may be placed elsewhere, at least **56** from the window's edges; never partly off screen or covered ([adaptive design](../sources/m3/components_dialogs.md#expanded-breakpoint), [position](../sources/m3/components_dialogs.md#position)).
 - **Scrolling**: avoid it; if needed, the title stays at the top and the buttons at the bottom ([scrolling](../sources/m3/components_dialogs.md#scrolling)).
@@ -99,8 +115,8 @@ M3 Expressive adds the **expressive list**, recommended for new designs, in **st
 | Part | Value |
 | --- | --- |
 | Container | `surface-container-low`, top corners 28, elevation 1 |
-| Width | full width up to **640**; wider windows give it a **56** top margin and 56 side margins |
-| Drag handle | 32×4, `on-surface-variant`, a **48** target; optional |
+| Width | full width up to **640**, with a **72** top margin; wider windows give it a **56** top margin and 56 side margins |
+| Drag handle | 32×4, `on-surface-variant`, centred, 22 above and below, a **48** target; optional |
 
 ([bottom sheets → measurements](../sources/m3/components_bottom-sheets.md#measurements); *tokens* `SheetBottomTokens`)
 
@@ -115,8 +131,7 @@ M3 Expressive adds the **expressive list**, recommended for new designs, in **st
 - **Standard**: supplementary content or actions beside the main content (filters, details), mostly on **medium and expanded** windows; stays while the content is used, and the content area shrinks to make room. **Modal** on compact; it must be closed to use the content ([side sheets → usage](../sources/m3/components_side-sheets.md#usage), [adaptive design](../sources/m3/components_side-sheets.md#adaptive-design)).
 - At the **trailing edge** (left in RTL), full height, fixed width (**400** max as a third pane, [foundations → layout](../foundations/layout.md#panes)); may be inset **16** from the edges, no more ([usage](../sources/m3/components_side-sheets.md#usage)).
 - A **close icon button** is highly recommended; a back button for a second level; a divider above action buttons or between kinds of content ([anatomy](../sources/m3/components_side-sheets.md#anatomy)).
+- **Padding**: 24 at the start and end (16 at the start before a leading icon), 12 between the top elements ([side sheets → standard side sheet measurements](../sources/m3/components_side-sheets.md#standard-side-sheet-measurements), [modal side sheet measurements](../sources/m3/components_side-sheets.md#modal-side-sheet-measurements)).
 - **Bottom actions**: 72 high, 16 above and 24 below, aligned to the **start** (left in left-to-right) ([side sheets → modal side sheet measurements](../sources/m3/components_side-sheets.md#modal-side-sheet-measurements)).
 - **Scrolls vertically on its own, never horizontally** ([behavior](../sources/m3/components_side-sheets.md#behavior)).
 - Elevation: standard (docked) 0, modal 1 ([foundations → elevation](../foundations/elevation.md#levels)).
-
-Open: the snapshot gives side sheet padding values (24, 16, 12, 72) in a table without their labels; take them from the side sheets specs page in a browser.

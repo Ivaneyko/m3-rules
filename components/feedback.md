@@ -7,7 +7,7 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 | Part | Value |
 | --- | --- |
 | Container | `inverse-surface`, corners 4, elevation 3, opaque |
-| Height | one line 48, two lines 68 |
+| Height | one line 48, two lines 68 (*tokens*); the page says 48 to **64** on compact windows ([compact breakpoint](../sources/m3/components_snackbar.md#compact-breakpoint)) |
 | Text | `inverse-on-surface`, body medium |
 | Action | text button, `inverse-primary`, label large |
 | Close icon | 24, `inverse-on-surface` |
@@ -29,9 +29,9 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 | Variant | Container | Text | Size |
 | --- | --- | --- | --- |
 | Plain | `inverse-surface`, corners 4 | `inverse-on-surface`, body small | 24 high, 8 padding |
-| Rich | `surface-container`, corners 12, elevation 2 | subhead `on-surface-variant` title small; text `on-surface-variant` body medium; actions `primary` label large | — |
+| Rich | `surface-container`, corners 12, elevation 2 | subhead `on-surface-variant` title small; text `on-surface-variant` body medium; actions `primary` label large | padding 12 top, 8 bottom, 16 sides |
 
-([tooltips → plain tooltip measurements](../sources/m3/components_tooltips.md#plain-tooltip-measurements); *tokens* `PlainTooltipTokens`, `RichTooltipTokens`)
+([tooltips → plain tooltip measurements](../sources/m3/components_tooltips.md#plain-tooltip-measurements), [rich tooltip measurements](../sources/m3/components_tooltips.md#rich-tooltip-measurements); *tokens* `PlainTooltipTokens`, `RichTooltipTokens`)
 
 - **Plain** tooltips label an element **without text** (icon-only buttons, fields); **not needed when the element already has a label**. **Rich** tooltips explain (definitions, a new feature) with an optional one-line subhead and **up to two text buttons**, side by side ([usage](../sources/m3/components_tooltips.md#usage), [anatomy](../sources/m3/components_tooltips.md#rich-tooltip)).
 - **Never hide critical information in a tooltip**; use a dialog ([usage](../sources/m3/components_tooltips.md#usage)).
@@ -44,10 +44,10 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 
 | Variant | Size | Colour |
 | --- | --- | --- |
-| Small (a dot) | 6 | `error` |
-| Large (a count) | 16 high, grows with the count | `error`, label `on-error`, label small |
+| Small (a dot) | 6, corners 3 | `error` |
+| Large (a count) | 16 for one digit, up to 16 × 34 at the most characters; corners 8; 4 padding "between badge and text container" (the page's label) | `error`, label `on-error`, label small |
 
-Both fully rounded (*tokens* `BadgeTokens`).
+Both fully rounded (*tokens* `BadgeTokens`). From the icon's top trailing corner to the badge's bottom leading corner (height × width): **6 × 6** for a small badge, **14 × 12** for a large one ([badges → measurements](../sources/m3/components_badges.md#measurements)).
 
 - On a **navigation destination's icon** (navigation bar, rail, app bars, tabs): a small badge for an unread notification, a large one for a count or status ([badges → usage](../sources/m3/components_badges.md#usage)).
 - **Anchored inside the icon's bounding box at its ending edge, never over the icon**, in a fixed position (mirrored in RTL); a growing count keeps the placement ([container](../sources/m3/components_badges.md#container)).
@@ -74,6 +74,8 @@ Both fully rounded (*tokens* `BadgeTokens`).
 | Colours | indicator `primary`, track `secondary-container` | same |
 
 (*tokens* `LinearProgressIndicatorTokens`, `CircularProgressIndicatorTokens`, `ProgressIndicatorTokens`)
+
+A linear indicator fills the width of what it sits in, inset at least **4** at each end, and **never sits in an element smaller than 40** ([measurements](../sources/m3/components_progress-indicators.md#measurements), [large screens](../sources/m3/components_progress-indicators.md#large-screens)).
 
 - **One indicator for a group** of loading items, not one each ([usage](../sources/m3/components_progress-indicators.md#usage)).
 - **Linear** along the edge of what loads (the top of the page for the whole page, the expanding edge of a card); **circular** centred on what loads, or in the empty space where new items will appear, **never over existing content** ([placement](../sources/m3/components_progress-indicators.md#placement)).

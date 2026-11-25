@@ -1,4 +1,4 @@
-# Selection and input: text fields, checkbox, radio, switch, chips, menus, slider, search, pickers
+# Selection and input: text fields, select, checkbox, radio, switch, chips, menus, slider, search, pickers
 
 Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp` = `1px` on the web). *Tokens* marks values from the Compose tokens ([component-tokens](../sources/tokens/component-tokens.md)).
 
@@ -8,7 +8,7 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 | --- | --- |
 | picks several related options from a list | Checkboxes |
 | picks one option, **five or fewer**, all shown | Radio buttons |
-| picks one option where space matters | A menu (it costs extra taps) |
+| picks one option where space matters | A menu (it costs extra taps); in a form, a [select](#select-text-field-with-a-menu) |
 | turns a **standalone** setting on or off, taking effect **at once** | Switch |
 | picks one of two **opposing** options (list or map view) | Connected button group ([actions](actions.md#button-groups)) |
 | filters a collection | Filter chips |
@@ -19,14 +19,17 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 
 | Part | Filled | Outlined |
 | --- | --- | --- |
-| Height | 56 | 56 |
+| Height | 56, also the target | 56, also the target |
+| Padding | 8 top and bottom; sides 16 without icons, 12 with icons; 16 between an icon and the text | sides 16 without icons, 12 with icons; 16 between an icon and the text |
+| Label | vertically centred when empty | vertically centred when empty; when populated it sits in the outline with 4 on each side |
+| Supporting text | 4 below the field; 16 between it and the character counter | same |
 | Container | `surface-container-highest`, top corners 4 | none, corners 4, `outline` 1 thick |
 | Focused | indicator `primary`, **2** high (1 at rest, `on-surface-variant`) | outline `primary`, **2** thick |
 | Error | indicator, label and supporting text `error` | outline, label and supporting text `error` |
 | Text | input `on-surface` body large; label `on-surface-variant` body large; supporting `on-surface-variant` body small | same |
 | Icons | 24, `on-surface-variant` | same |
 
-(*tokens* `FilledTextFieldTokens`, `OutlinedTextFieldTokens`)
+([text fields → filled measurements](../sources/m3/components_text-fields.md#filled-text-field-measurements), [outlined measurements](../sources/m3/components_text-fields.md#outlined-text-field-measurements); colours *tokens* `FilledTextFieldTokens`, `OutlinedTextFieldTokens`)
 
 - **Filled or outlined**: the same function; choose by the app's style, by what suits the UI, and by what stands out most from buttons and nearby content. Outlined has less emphasis, which simplifies forms where many fields sit together. **Both may appear on one screen, but never mixed within one section** ([text fields → usage](../sources/m3/components_text-fields.md#usage), [choosing text fields](../sources/m3/components_text-fields.md#choosing-text-fields-1)).
 - **Label**: every field has one, **always visible**, aligned with the input, **never truncated or on two lines**. A field may skip its own label only when an **adjacent label** at its leading edge names it ([label text](../sources/m3/components_text-fields.md#label-text), [adjacent label](../sources/m3/components_text-fields.md#adjacent-label)).
@@ -41,6 +44,23 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 - An outlined field's outline may need **3:1** against the background ([text fields → accessibility](../sources/m3/components_text-fields.md#interaction--style)).
 
 Open: the Compose tokens give a **2** outline when focused; this rule set has no page text giving another value. Check the text fields specs page in a browser before using a different one.
+
+## Select (text field with a menu)
+
+A select is a **text field** (filled or outlined, with the sizes above) whose trailing **dropdown icon** says it opens a menu of options ([text fields → icons & images](../sources/m3/components_text-fields.md#icons--images), [menus → opening menus](../sources/m3/components_menus.md#opening-menus)). M3 calls the old exposed dropdown menu just a **menu** ([menus → differences from M2](../sources/m3/components_menus.md#differences-from-m2)).
+
+| Part | Value |
+| --- | --- |
+| Field | the text field's: 56 high, its padding, colours and states; icons 24, except a filled select's leading icon, 20 in `FilledAutocompleteTokens` |
+| Menu | corners 4 (*tokens* `MenuContainerShape`); items as in the [menu](#menus) |
+
+(*tokens* `FilledAutocompleteTokens`, `OutlinedAutocompleteTokens`)
+
+- **While the menu is open, the element that opened it keeps its pressed state**, also when opened from the keyboard ([selecting](../sources/m3/components_menus.md#selecting)).
+- **Single-select**: choosing an item unselects the previous one. **Multi-select**: the menu stays open until it's dismissed ([single- and multi-select menus](../sources/m3/components_menus.md#single--and-multi-select-menus)).
+- **Filtering (autocomplete)**: a text field filters the options as the user types, for long lists; items ease into their new places ([filtering](../sources/m3/components_menus.md#filtering)).
+- **Long lists scroll** with a **persistent scrollbar**; a scrolling menu has no gaps, so groups use dividers ([scrolling](../sources/m3/components_menus.md#scrolling), [gaps & dividers](../sources/m3/components_menus.md#gaps--dividers-optional)).
+- Five or fewer options that should all stay visible are radio buttons instead ([choosing a selection control](#choosing-a-selection-control)).
 
 ## Checkbox
 
@@ -67,9 +87,10 @@ Icon 20; selected `primary`, unselected `on-surface-variant` (*tokens* `RadioBut
 | Part | Value |
 | --- | --- |
 | Track | 52×32, fully round; on `primary`; off `surface-container-highest` with a 2 `outline` |
-| Handle | off 16, `outline`; on 24, `on-primary`; with an icon 24; icons 16 |
+| Handle | off 16, `outline`; on 24, `on-primary`; with an icon 24; **pressed 28**; icons 16 |
+| Target | state layer 40 in a 48 target |
 
-(*tokens* `SwitchTokens`)
+([switch → measurements](../sources/m3/components_switch.md#measurements); colours *tokens* `SwitchTokens`)
 
 - A **binary** setting (on/off, true/false) that **takes effect immediately, without Save**; **never two opposing options** (use a connected button group) ([switch → usage](../sources/m3/components_switch.md#usage)).
 - **Always an inline label** saying what it controls when on; an icon in the handle is optional and must be unambiguous ([label text](../sources/m3/components_switch.md#label-text), [anatomy](../sources/m3/components_switch.md#anatomy)).
@@ -83,7 +104,7 @@ Icon 20; selected `primary`, unselected `on-surface-variant` (*tokens* `RadioBut
 | Input | `outline-variant` 1 | `secondary-container` / `on-secondary-container` | `on-surface-variant` | leading 18 or avatar 24 (round); trailing 18 |
 | Suggestion | flat: `outline-variant` 1; elevated: `surface-container-low` | — | `on-surface-variant` | leading 18, `primary` |
 
-All **32** high, **8** corners, label large (*tokens* `AssistChipTokens`, `FilterChipTokens`, `InputChipTokens`, `SuggestionChipTokens`).
+All **32** high, **8** corners, label large (*tokens* `AssistChipTokens`, `FilterChipTokens`, `InputChipTokens`, `SuggestionChipTokens`). Label start-aligned; side padding **16** without an icon, **8** on a side with an icon; **8** between elements. An input chip with an avatar: left padding 4, right padding 8 (the page's labels) ([assist](../sources/m3/components_chips.md#assist-chip-measurements), [filter](../sources/m3/components_chips.md#filter-chip-measurements), [input](../sources/m3/components_chips.md#input-chip-measurements), [suggestion chip measurements](../sources/m3/components_chips.md#suggestion-chip-measurements)).
 
 - **Chips aren't buttons**: chips are dynamic, contextual options in a **set** (forking paths); buttons are persistent steps forward (no more than 3 together) ([chips → chips aren't buttons](../sources/m3/components_chips.md#chips-arent-buttons)).
 - **Variants**: **assist** for smart or automated actions (start with a verb: Add to calendar; may change Save → Saved); **filter** for filtering a collection; **input** for pieces of information the user entered (a contact in To); **suggestion** for generated suggestions (a reply) ([variants](../sources/m3/components_chips.md#variants)).
@@ -101,12 +122,14 @@ M3 Expressive adds **vertical menus**, recommended for new designs, in **standar
 | Part | Vertical menu (*tokens*) |
 | --- | --- |
 | Container | standard `surface-container-low`, vibrant `tertiary-container`; corners 16; elevation 2 |
-| Items | corners 4, first and last 12, selected 12; padding 16 start and end, 8 top and bottom, 12 between elements; icons 20 |
+| Items | 44 high (`Item`); corners 4, first and last 12, selected 12; padding 16 start and end, 8 top and bottom, 12 between elements; icons 20 |
 | Groups | corners 8, 4 padding, **2** gap between segments |
 | Text | label `on-surface`, supporting and icons `on-surface-variant` (vibrant: `on-tertiary-container`) |
 | Selected item | standard `tertiary-container` / `on-tertiary-container`; vibrant `tertiary` / `on-tertiary` |
 
 (*tokens* `SegmentedMenuTokens`, `StandardMenuTokens`, `VibrantMenuTokens`; the baseline menu, `MenuTokens`: `surface-container`, corners 4, elevation 2, selected `secondary-container`)
+
+Baseline menu: **112–280** wide, corners 4; items **48** high, 12 side padding (with or without an icon), 12 between elements, icons 24; dividers 1 high with 8 above and below ([menu (baseline) → measurements](../sources/m3/components_menus.md#measurements-1)).
 
 - **A temporary set of actions**; actions that must always show go in a **toolbar**. Smaller than a set of radio buttons or chips ([usage](../sources/m3/components_menus.md#usage)).
 - **Vibrant** sparingly ([color options](../sources/m3/components_menus.md#color-options)).
@@ -119,10 +142,10 @@ M3 Expressive adds **vertical menus**, recommended for new designs, in **standar
 
 | Part | Value |
 | --- | --- |
-| Search bar | 56 high, fully round, `surface-container-high`, elevation 3; text `on-surface` body large; leading icon `on-surface`, trailing `on-surface-variant`; avatar 30 |
-| Search view | `surface-container-high`; docked: corners 28, header 56; full-screen: corners 0, header 72 |
+| Search bar | 56 high, **360–720** wide, fully round, `surface-container-high`, elevation 3; label start-aligned; 4 between the icons' targets and the label; text `on-surface` body large; leading icon `on-surface`, trailing `on-surface-variant`; avatar 30 |
+| Search view | `surface-container-high`; docked: **360–720** wide, **240** high up to **⅔** of the screen, corners 28, header 56; full-screen: full width and height, corners 0, header 72 |
 
-(*tokens* `SearchBarTokens`, `SearchViewTokens`)
+([search → measurements](../sources/m3/components_search.md#measurements); colours *tokens* `SearchBarTokens`, `SearchViewTokens`)
 
 - **Entry points**: a **search bar** to search one view ("Search your messages"); a **search app bar** when search is the main, global function; a **search icon button** when it's secondary ([search → usage](../sources/m3/components_search.md#usage)).
 - **Focused search**: suggestions may show before typing, results while typing or after; both in a **list**, optionally with icons, category labels, avatars and filter chips; gaps group them ([usage](../sources/m3/components_search.md#usage), [gaps](../sources/m3/components_search.md#gaps)).
@@ -139,7 +162,17 @@ M3 Expressive adds **vertical menus**, recommended for new designs, in **standar
 | Stops | 4 dots, `secondary-container` |
 | Value | `inverse-surface` / `inverse-on-surface`, label large |
 
-(*tokens* `SliderTokens`; M3 Expressive also adds sizes XS–XL and vertical sliders, [M3 Expressive update](../sources/m3/components_sliders.md#m3-expressive-update))
+(*tokens* `SliderTokens`, which match the XS size below; M3 Expressive also adds sizes XS–XL and vertical sliders, [M3 Expressive update](../sources/m3/components_sliders.md#m3-expressive-update))
+
+| Size | Track height | Track corners | Handle height | Inset icon |
+| --- | --- | --- | --- | --- |
+| XS | 16 | 8 | 44 | — |
+| S | 24 | 8 | 44 | — |
+| M | 40 | 12 | 52 | 24 |
+| L | 56 | 16 | 68 | 24 |
+| XL | 96 | 28 | 108 | 32 |
+
+Handle 4 wide and value label 48 × 44 at every size ([sliders → measurements](../sources/m3/components_sliders.md#measurements)).
 
 - For values along a range (volume, brightness, filter intensity); **changes take effect immediately** ([sliders → usage](../sources/m3/components_sliders.md#usage)).
 - **Standard** (from zero), **centred** (zero or default in the middle), **range** (min and max); **no vertical range sliders** ([usage](../sources/m3/components_sliders.md#usage)).
@@ -155,7 +188,8 @@ M3 Expressive adds **vertical menus**, recommended for new designs, in **standar
   - **Modal input**: typed dates; switch with the modal picker through the edit or calendar icon.
   - On compact, a **full-screen** modal picker is recommended.
   ([docked date picker](../sources/m3/components_date-pickers.md#docked-date-picker-1), [modal date picker](../sources/m3/components_date-pickers.md#modal-date-picker-1), [modal date input](../sources/m3/components_date-pickers.md#modal-date-input-1))
-- Modal date picker (*tokens* `DatePickerModalTokens`): 360×568, `surface-container-high`, corners 28, elevation 3; days 40, round; selected `primary` / `on-primary`; today outlined 1 `primary`; range `secondary-container`.
+- Modal date picker (*tokens* `DatePickerModalTokens`): 360×568, `surface-container-high`, corners 28, elevation 3; days 40, round; selected `primary` / `on-primary`; today outlined 1 `primary`; range `secondary-container`; years 72 × 36 with a round state layer.
+- Modal date input (*tokens* `DateInputModalTokens`): 328×512, corners 28, header 120.
 - **Time pickers** ([time pickers → usage](../sources/m3/components_time-pickers.md#usage)):
   - **Scroll**: compact, inline or on a sheet, menu or dialog; keeps surrounding content visible.
   - **Input**: keyboard entry, inline or modal; **both other pickers toggle to it** (keyboard icon) for accessible entry.
@@ -163,3 +197,6 @@ M3 Expressive adds **vertical menus**, recommended for new designs, in **standar
   - Follows the **24-hour** setting (no AM/PM, an inner dial).
   - **Only when any minute can be chosen**; preset times use something simpler, such as buttons.
 - Dial picker (*tokens* `TimePickerTokens`): `surface-container-high`, corners 28, elevation 3; dial 256, `surface-container-highest`; selector `primary`, handle 48.
+- Time picker sizes ([time pickers → measurements](../sources/m3/components_time-pickers.md#measurements-1)): both pickers size to their content, headline start-aligned, **24** padding on every side.
+  - **Input**: hour and minute fields 96 × 72; the AM/PM selector 52 × 72.
+  - **Dial**: hour and minute selectors 96 × 80 (114 wide in the vertical 24-hour layout); the AM/PM selector 52 × 80 in its vertical layout, 216 × 38 in its horizontal one; dial 256, its handle 48, centre dot 8, track 2.
