@@ -1,6 +1,6 @@
 {
   "name": "m3-rules",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "description": "Material 3 Expressive rules for AI coding agents and people, sourced from m3.material.io",
   "type": "module",
