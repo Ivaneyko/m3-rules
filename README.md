@@ -32,6 +32,10 @@ It copies `SKILL.md`, `foundations/`, `components/`, `patterns/`, `sources/`, `L
 
 Point the project's agent instructions at the copied `SKILL.md`. The agent answers from the rule files and asks you before it opens anything in `sources/`, naming the file and section ([SKILL → Reading sources](SKILL.md#reading-sources)). Don't edit the copy: project choices and approved departures from the spec go in the project's own rule files.
 
+## Releases
+
+What changed in each version is in [CHANGELOG.md](CHANGELOG.md). To release: in one PR, set `version` in `package.json` and add the version's section to the changelog; after the merge, tag the merge commit `vX.Y.Z` and publish a GitHub release with that section as its notes.
+
 ## Working on it
 
 ```sh
