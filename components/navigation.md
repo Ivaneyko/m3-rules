@@ -1,4 +1,4 @@
-# Navigation: app bars, navigation bar, navigation rail, tabs and toolbars
+# Navigation: app bars, navigation bar, navigation rail, navigation drawer, tabs and toolbars
 
 Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp` = `1px` on the web). *Tokens* marks values from the Compose tokens ([component-tokens](../sources/tokens/component-tokens.md)). Which navigation component goes with which window size: [layout → navigation by breakpoint](../foundations/layout.md#navigation-by-breakpoint).
 
@@ -46,7 +46,7 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 - **Scrolling**: the app bar starts in the background colour and **fills with `surface-container` on scroll**, with no drop shadow (*tokens* also give an on-scroll elevation of level 2, `OnScrollContainerElevation`). It can stay or hide and come back. A transparent app bar on scroll is allowed if its icon buttons have a container fill. Medium and large flexible app bars may compress into a small one and stay small until the page is back at the top; **never transform into a search app bar** ([scrolling](../sources/m3/components_app-bars.md#scrolling), [differences from M2](../sources/m3/components_app-bars.md#differences-from-m2)).
 - **Narrow windows**: trailing actions may collapse into an overflow menu and come back at larger sizes ([resizing](../sources/m3/components_app-bars.md#resizing)).
 - **Right-to-left**: the layout mirrors ([presentation](../sources/m3/components_app-bars.md#presentation)).
-- **Accessibility**: the headline's label matches its text, with extra context if needed to say which page this is. Initial focus is on the leading button; **Tab** moves between elements, **Space** or **Enter** activates. Icon buttons are labelled by the action they take ([use cases](../sources/m3/components_app-bars.md#use-cases), [keyboard navigation](../sources/m3/components_app-bars.md#keyboard-navigation), [labeling elements](../sources/m3/components_app-bars.md#labeling-elements)).
+- **Accessibility**: the headline's label matches its text, with extra context if needed to say which page this is. Initial focus is on the leading button; **Tab** moves between elements, **Space** or **Enter** activates. Icon buttons are labelled by the action they take ([use cases](../sources/m3/components_app-bars.md#use-cases), [initial focus](../sources/m3/components_app-bars.md#initial-focus), [keyboard navigation](../sources/m3/components_app-bars.md#keyboard-navigation), [labeling elements](../sources/m3/components_app-bars.md#labeling-elements)).
 
 ## Navigation bar
 
@@ -114,6 +114,24 @@ Open conflict: the page lists "no shadow" as a change from M2, while *tokens* gi
 - **Text scaling**: items grow taller and labels may wrap; the full label stays visible up to **2×** ([text scaling and truncation](../sources/m3/components_navigation-rail.md#text-scaling-and-truncation)).
 - **Keyboard**: initial focus on the first interactive item (the menu, the FAB or the first destination); **Tab** reaches the destinations, **Tab** or **arrows** move between them, **Space** or **Enter** selects. The accessible name matches the label, more descriptive when the label is ambiguous (Recent → Recent images) ([initial focus](../sources/m3/components_navigation-rail.md#initial-focus), [keyboard navigation](../sources/m3/components_navigation-rail.md#keyboard-navigation), [labeling elements](../sources/m3/components_navigation-rail.md#labeling-elements)).
 - **Tabs** may sit alongside a rail for another visible level of navigation ([placement](../sources/m3/components_navigation-rail.md#placement)).
+
+## Navigation drawer (no longer recommended)
+
+M3 Expressive replaces it with the **expanded navigation rail**; use these values only to keep an existing drawer consistent ([navigation drawer → M3 Expressive update](../sources/m3/components_navigation-drawer.md#m3-expressive-update)).
+
+| Part | Value |
+| --- | --- |
+| Container | full height, 360 wide; standard: corners 0, 16, 16, 0 |
+| Active indicator | 336 × 56, corners 28, 12 padding |
+| Items | icon 24, label start-aligned, 28 padding left and right, 0 between items |
+
+([standard](../sources/m3/components_navigation-drawer.md#standard-navigation-drawer), [modal navigation drawer measurements](../sources/m3/components_navigation-drawer.md#modal-navigation-drawer))
+
+- For **5 or more** top-level destinations, two or more levels of hierarchy, or quick moves between unrelated destinations; **never with another primary navigation** (a navigation bar); one destination is always active ([usage](../sources/m3/components_navigation-drawer.md#usage)).
+- Short **section labels** may group destinations ([section label](../sources/m3/components_navigation-drawer.md#section-label-optional)).
+- **Modal**: a scrim blocks the rest of the app and closes the drawer when clicked ([scrim](../sources/m3/components_navigation-drawer.md#scrim-modal-only), [closing](../sources/m3/components_navigation-drawer.md#closing)).
+- **Selected** destinations use a **filled icon**, the others outlined ([visual indicators](../sources/m3/components_navigation-drawer.md#visual-indicators)).
+- **Keyboard**: focus starts on the **first destination**; **arrows** move between destinations; **Space** or **Enter** selects one and moves focus to the section it opens. Each item is named by its destination, more descriptive when the text is ambiguous (Recents) ([initial focus](../sources/m3/components_navigation-drawer.md#initial-focus), [keyboard navigation](../sources/m3/components_navigation-drawer.md#keyboard-navigation), [labeling elements](../sources/m3/components_navigation-drawer.md#labeling-elements)).
 
 ## Tabs
 

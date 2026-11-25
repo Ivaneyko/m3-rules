@@ -7,7 +7,7 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 | Part | Value |
 | --- | --- |
 | Container | `inverse-surface`, corners 4, elevation 3, opaque |
-| Height | one line 48, two lines 68 |
+| Height | one line 48, two lines 68 (*tokens*); the page says 48 to **64** on compact windows ([compact breakpoint](../sources/m3/components_snackbar.md#compact-breakpoint)) |
 | Text | `inverse-on-surface`, body medium |
 | Action | text button, `inverse-primary`, label large |
 | Close icon | 24, `inverse-on-surface` |
@@ -29,9 +29,9 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 | Variant | Container | Text | Size |
 | --- | --- | --- | --- |
 | Plain | `inverse-surface`, corners 4 | `inverse-on-surface`, body small | 24 high, 8 padding |
-| Rich | `surface-container`, corners 12, elevation 2 | subhead `on-surface-variant` title small; text `on-surface-variant` body medium; actions `primary` label large | — |
+| Rich | `surface-container`, corners 12, elevation 2 | subhead `on-surface-variant` title small; text `on-surface-variant` body medium; actions `primary` label large | padding 12 top, 8 bottom, 16 sides |
 
-([tooltips → plain tooltip measurements](../sources/m3/components_tooltips.md#plain-tooltip-measurements); *tokens* `PlainTooltipTokens`, `RichTooltipTokens`)
+([tooltips → plain tooltip measurements](../sources/m3/components_tooltips.md#plain-tooltip-measurements), [rich tooltip measurements](../sources/m3/components_tooltips.md#rich-tooltip-measurements); *tokens* `PlainTooltipTokens`, `RichTooltipTokens`)
 
 - **Plain** tooltips label an element **without text** (icon-only buttons, fields); **not needed when the element already has a label**. **Rich** tooltips explain (definitions, a new feature) with an optional one-line subhead and **up to two text buttons**, side by side ([usage](../sources/m3/components_tooltips.md#usage), [anatomy](../sources/m3/components_tooltips.md#rich-tooltip)).
 - **Never hide critical information in a tooltip**; use a dialog ([usage](../sources/m3/components_tooltips.md#usage)).
@@ -39,21 +39,23 @@ Sources read: 2026-11-20 ([snapshot](../sources/SNAPSHOT.md)). Sizes in dp (`1dp
 - **Placement**: a plain tooltip sits **above** its element, **4** away when the element has a visible boundary (a button), **8** when not (text); **below** it in an app bar. A rich tooltip sits at the bottom right, never covering its element, moving in 8 steps to stay on screen; on desktop it may be centred below ([placement](../sources/m3/components_tooltips.md#placement)).
 - **Behaviour**: shown on **hover** (desktop) or **long press** (mobile), also on focus; gone **1.5 s** after leaving; **one at a time**. A **persistent** rich tooltip opens on click or on page load (introducing a feature) and stays until another element is used; **not on icon buttons** ([behavior](../sources/m3/components_tooltips.md#behavior), [interaction & style](../sources/m3/components_tooltips.md#interaction--style)).
 - **Focus** moves top to bottom through a rich tooltip's links and buttons and is never trapped there ([focus order](../sources/m3/components_tooltips.md#focus-order)).
+- **Accessibility**: role **tooltip**; elements inside are named by their own rules; **Tab** reaches a rich tooltip's button, **Space** or **Enter** activates it ([labeling elements](../sources/m3/components_tooltips.md#labeling-elements), [keyboard navigation](../sources/m3/components_tooltips.md#keyboard-navigation)).
 
 ## Badges
 
 | Variant | Size | Colour |
 | --- | --- | --- |
-| Small (a dot) | 6 | `error` |
-| Large (a count) | 16 high, grows with the count | `error`, label `on-error`, label small |
+| Small (a dot) | 6, corners 3 | `error` |
+| Large (a count) | 16 for one digit, up to 16 × 34 at the most characters; corners 8; 4 padding "between badge and text container" (the page's label) | `error`, label `on-error`, label small |
 
-Both fully rounded (*tokens* `BadgeTokens`).
+Both fully rounded (*tokens* `BadgeTokens`). From the icon's top trailing corner to the badge's bottom leading corner (height × width): **6 × 6** for a small badge, **14 × 12** for a large one ([badges → measurements](../sources/m3/components_badges.md#measurements)).
 
 - On a **navigation destination's icon** (navigation bar, rail, app bars, tabs): a small badge for an unread notification, a large one for a count or status ([badges → usage](../sources/m3/components_badges.md#usage)).
 - **Anchored inside the icon's bounding box at its ending edge, never over the icon**, in a fixed position (mirrored in RTL); a growing count keeps the placement ([container](../sources/m3/components_badges.md#container)).
 - **At most four characters**, a + included (`999+`); never cut off or colliding ([label text](../sources/m3/components_badges.md#label-text)).
 - A small badge where space is tight (app bars); a large badge where nothing collides (a rail), or at the trailing edge when text follows ([placement](../sources/m3/components_badges.md#placement)).
 - **Keep the default colours**; custom ones need 3:1. An unread badge **disappears once its destination is selected** ([container](../sources/m3/components_badges.md#container), [interaction & style](../sources/m3/components_badges.md#interaction--style)).
+- **Accessible name**: read after its destination; a count reads its number, a dot reads **New notification** ([labeling elements](../sources/m3/components_badges.md#labeling-elements)).
 
 ## Progress and loading indicators
 
@@ -75,6 +77,8 @@ Both fully rounded (*tokens* `BadgeTokens`).
 
 (*tokens* `LinearProgressIndicatorTokens`, `CircularProgressIndicatorTokens`, `ProgressIndicatorTokens`)
 
+A linear indicator fills the width of what it sits in, inset at least **4** at each end, and **never sits in an element smaller than 40** ([measurements](../sources/m3/components_progress-indicators.md#measurements), [large screens](../sources/m3/components_progress-indicators.md#large-screens)).
+
 - **One indicator for a group** of loading items, not one each ([usage](../sources/m3/components_progress-indicators.md#usage)).
 - **Linear** along the edge of what loads (the top of the page for the whole page, the expanding edge of a card); **circular** centred on what loads, or in the empty space where new items will appear, **never over existing content** ([placement](../sources/m3/components_progress-indicators.md#placement)).
 - **Determinate** must show real progress; **indeterminate** when the time is unknown; switch from indeterminate to determinate when the progress becomes known ([usage](../sources/m3/components_progress-indicators.md#usage)).
@@ -83,6 +87,7 @@ Both fully rounded (*tokens* `BadgeTokens`).
 - A **stop indicator** (a 4 dot at the end of a linear determinate track) is required when the track has under 3:1 contrast with its surroundings ([stop indicator](../sources/m3/components_progress-indicators.md#stop-indicator)).
 - **In a button**: a circular indicator, flat in very small buttons, **in the button's label or icon colour with no track** for 3:1; not on every button in a list ([progress indicators in buttons](../sources/m3/components_progress-indicators.md#progress-indicators-in-buttons)).
 - Linear indicators mirror in RTL; circular ones don't ([right-to-left languages](../sources/m3/components_progress-indicators.md#right-to-left-languages)).
+- **Accessible name**: role **progressbar**, named by the process and what it affects (Loading news article, Refreshing page) ([labeling elements](../sources/m3/components_progress-indicators.md#labeling-elements)).
 
 ### Loading indicator
 
@@ -99,4 +104,5 @@ Both fully rounded (*tokens* `BadgeTokens`).
 - **Centred** on the page or container that loads, or in the space where new content will appear, not over existing content; may sit in a button ([placement](../sources/m3/components_loading-indicator.md#placement)).
 - Use the **contained** form over other content and for pull-to-refresh ([container](../sources/m3/components_loading-indicator.md#container-optional)).
 - In another component (a button) the indicator keeps **3:1** contrast against it. Pull-to-refresh needs a single-pointer alternative, such as a refresh button ([loading indicator → interaction & style](../sources/m3/components_loading-indicator.md#interaction--style)).
+- **Accessible name**: as for progress indicators: role **progressbar**, named by its purpose (Refreshing page) ([labeling elements](../sources/m3/components_loading-indicator.md#labeling-elements)).
 - Its active indicator is a looping morph of seven Material shapes ([active indicator](../sources/m3/components_loading-indicator.md#active-indicator)); the morph API isn't on the web ([foundations → shape](../foundations/shape.md#expressive-shapes-and-morphing)).

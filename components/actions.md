@@ -72,6 +72,7 @@ Round buttons are fully rounded at every size; a toggle turns from round to squa
 - **Icons**: default icon buttons use filled icons; toggles use an outlined icon off and filled on. Without a filled version, a selected icon becomes **semibold** (or bold), so selection never shows by colour alone ([icon](../sources/m3/components_icon-buttons.md#icon), [icon accessibility requirements](../sources/m3/components_icon-buttons.md#icon-accessibility-requirements)).
 - Use only a few at once, for common, clear actions; many go in a toolbar or button group ([placement](../sources/m3/components_icon-buttons.md#placement)).
 - **On hover an icon button shows a tooltip** describing the action, not the icon's name ([behavior → hover](../sources/m3/components_icon-buttons.md#hover)).
+- **Accessible name**: the action it performs (Add to favorites, Send message). **Tab** reaches an enabled icon button, **Space** or **Enter** activates it ([labeling elements](../sources/m3/components_icon-buttons.md#labeling-elements), [keyboard navigation](../sources/m3/components_icon-buttons.md#keyboard-navigation)).
 
 ## Button groups
 
@@ -81,6 +82,7 @@ Round buttons are fully rounded at every size; a toggle turns from round to squa
   - XS and S groups keep **48dp** targets and a **48dp** minimum button width ([minimum widths](../sources/m3/components_button-groups.md#minimum-widths)).
   - **Spans the width** of its page or surface, with a maximum width on large windows ([container](../sources/m3/components_button-groups.md#container)).
 - Both: **one line, never wrapped**; trailing buttons may collapse into an overflow menu at the end on small windows; the main action stays the most prominent at every breakpoint; don't stretch icon buttons beyond "wide" ([adaptive design](../sources/m3/components_button-groups.md#resizing), [presentation](../sources/m3/components_button-groups.md#presentation)).
+- **Keyboard and names**: the group's container takes no focus and needs no label. **Tab** reaches the group, landing on its first button; **arrow keys** move between its buttons; **Space** or **Enter** activates. Each button is named like any button or icon button ([initial focus](../sources/m3/components_button-groups.md#initial-focus), [keyboard navigation](../sources/m3/components_button-groups.md#keyboard-navigation), [labeling elements](../sources/m3/components_button-groups.md#labeling-elements)).
 
 ## Split button
 
@@ -98,7 +100,7 @@ The two parts are **2dp apart**, outer corners full; the trailing button's inner
 
 - The leading button: **1–2 words** and an icon. The trailing button always shows the **expand/collapse icon**, which **rotates 180°** inwards when the menu opens (standard motion scheme, not expressive) ([anatomy](../sources/m3/components_split-button.md#anatomy), [behavior](../sources/m3/components_split-button.md#behavior)).
 - The menu opens **4dp** from the button, aligned with the trailing button where possible, otherwise with one of the button's sides ([menu placement](../sources/m3/components_split-button.md#menu-placement)).
-- Each part has a **48×48** target; focus goes to the leading button, then the trailing one; the trailing button's label says more options exist and whether the menu is open ([split button → accessibility](../sources/m3/components_split-button.md#interaction--style), [labeling elements](../sources/m3/components_split-button.md#labeling-elements)).
+- Each part has a **48×48** target; focus goes to the leading button, then the trailing one (**Tab** between them, **Space** or **Enter** activates); the trailing button's label says more options exist, tied to the main action (Watch later → "More watch options"), and whether the menu is open ([split button → accessibility](../sources/m3/components_split-button.md#interaction--style), [labeling elements](../sources/m3/components_split-button.md#labeling-elements), [initial focus](../sources/m3/components_split-button.md#initial-focus), [keyboard navigation](../sources/m3/components_split-button.md#keyboard-navigation)).
 
 ## FAB
 
@@ -117,6 +119,8 @@ The two parts are **2dp apart**, outer corners full; the trailing button's inner
 - **At most one per screen**, and not on every screen ([usage](../sources/m3/components_floating-action-button.md#usage)). Never on a card or another component of its own ([adaptive design](../sources/m3/components_floating-action-button.md#adaptive-design)).
 - **Placement**: lower right on compact and medium; on expanded, upper left, as in the navigation rail ([adaptive design](../sources/m3/components_floating-action-button.md#adaptive-design)).
 - **Size by context**: the **FAB (56)** is best in compact windows where other actions may be on screen; the **medium FAB** for most other cases, in compact and medium windows; the **large FAB** on tablets and larger ([usage](../sources/m3/components_floating-action-button.md#usage), [adaptive design](../sources/m3/components_floating-action-button.md#adaptive-design)).
+- **Motion**: it **stays in place on scroll**; it appears by expanding from its centre; on a layout change it disappears and reappears, **only if relevant**, in the same place if possible; switching **tabs** hides it briefly and brings it back as the new content settles, never animated with the content. It may expand into a surface (container transform) or a FAB menu ([appearing](../sources/m3/components_floating-action-button.md#appearing), [scrolling](../sources/m3/components_floating-action-button.md#scrolling), [moving across tabs](../sources/m3/components_floating-action-button.md#moving-across-tabs), [expanding](../sources/m3/components_floating-action-button.md#expanding)).
+- **Accessibility**: named by its action (Compose a new message); **early in the focus order** (on mobile, after the app bar and navigation bar, before the content); a tooltip on focus on the web; **Tab** reaches it, **Space** or **Enter** activates. It may cover part of another element but **never hides a focus indicator** ([labeling elements](../sources/m3/components_floating-action-button.md#labeling-elements), [focus](../sources/m3/components_floating-action-button.md#focus), [keyboard navigation](../sources/m3/components_floating-action-button.md#keyboard-navigation), [layout & position](../sources/m3/components_floating-action-button.md#layout--position)).
 - **Icon**: clear, **filled**; on the web a **tooltip on hover**. No badges over it, no notifications in it ([anatomy](../sources/m3/components_floating-action-button.md#anatomy), [icon](../sources/m3/components_floating-action-button.md#icon)).
 
 ## Extended FAB
@@ -134,6 +138,8 @@ The two parts are **2dp apart**, outer corners full; the trailing button's inner
 - Label **1–2 words**, never wrapped or truncated; an icon is optional, **never an icon alone**; the container hugs its content ([anatomy](../sources/m3/components_extended-fab.md#anatomy)).
 - Not on toolbars, cards or other containers, not in the upper half of a phone screen, and **not with a floating toolbar** ([placement](../sources/m3/components_extended-fab.md#placement)).
 - Becomes a FAB when space is short; a FAB in a collapsed rail becomes an extended FAB when the rail expands ([responsive layout](../sources/m3/components_extended-fab.md#responsive-layout)).
+- **On scroll** it may shrink to a FAB going down and grow back going up (the FAB page says: on reaching the bottom of the view) (the shape changes, the icon moves to the start, the label fades in) ([scrolling](../sources/m3/components_extended-fab.md#scrolling), [FAB → scrolling](../sources/m3/components_floating-action-button.md#scrolling)).
+- **Accessibility**: icon and label are **one focusable element**, early in the focus order, with no tooltip. The accessible name **starts with the visible label's first word** (Create → "Create a new invite"). **Tab** reaches it, **Space** or **Enter** activates ([initial focus](../sources/m3/components_extended-fab.md#initial-focus), [labeling elements](../sources/m3/components_extended-fab.md#labeling-elements), [keyboard navigation](../sources/m3/components_extended-fab.md#keyboard-navigation)).
 
 ## FAB menu
 
@@ -144,6 +150,7 @@ Replaces the speed dial and stacked small FABs ([FAB menu → M3 Expressive upda
 - **Not with a floating toolbar or a navigation rail** ([usage](../sources/m3/components_fab-menu.md#usage)).
 - The colour set (primary, secondary, tertiary) matches the FAB's ([color sets](../sources/m3/components_fab-menu.md#color-sets)).
 - The FAB turns into the **close button**; items enter with the enter-and-exit transition from the FAB's top trailing corner ([appearing](../sources/m3/components_fab-menu.md#appearing)).
+- **Focus** stays on the close button when it opens, then runs from the top item to the bottom; **Tab** moves on, **Space** or **Enter** activates. **On the web** follow the FAB and [menu](inputs.md#menus) rules, with the FAB named after the menu it opens. It never hides a focus indicator. On short windows the items scroll behind the close button ([initial focus](../sources/m3/components_fab-menu.md#initial-focus), [keyboard navigation](../sources/m3/components_fab-menu.md#keyboard-navigation), [web](../sources/m3/components_fab-menu.md#web), [appearing](../sources/m3/components_fab-menu.md#appearing), [scrolling](../sources/m3/components_fab-menu.md#scrolling)).
 - Margins **16dp**, **24dp** on large and extra-large windows. **On the web it is a menu component** ([adaptive layout](../sources/m3/components_fab-menu.md#adaptive-layout)).
 - Sizes (*tokens* `FabMenuBaselineTokens`): close button 56, fully round, icon 20; items 56 high, 24 side padding, icon 24, 8 icon–label gap, **4 between items**, fully round.
 

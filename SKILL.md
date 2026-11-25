@@ -7,6 +7,8 @@ description: Material 3 Expressive rules for building and reviewing web UI, take
 
 What Material 3, in its current **M3 Expressive** version, says about foundations, components and patterns, written for the web (`1dp` is `1px`). These rules are project-neutral: they say nothing about a component library, a theme's colours, a typeface or a product's screens. A project keeps those in its own rule files, next to a copy of this one.
 
+**On the web, M3 Expressive has no official implementation**, and Material Web Components are in maintenance mode ([develop → web](sources/m3/develop_web.md)).
+
 ## Which file
 
 Read this file, then **only the files your task touches**.
@@ -21,15 +23,19 @@ Read this file, then **only the files your task touches**.
 | animating: springs, their CSS curves, easing, durations, transitions, reduced motion | [foundations/motion.md](foundations/motion.md) |
 | laying out a screen: breakpoints, panes, canonical layouts, spacing, density | [foundations/layout.md](foundations/layout.md) |
 | using icons, sizing targets, contrast, landmarks, headings, focus order, accessibility labels | [foundations/icons-and-accessibility.md](foundations/icons-and-accessibility.md) |
+| supporting mouse, trackpad, keyboard, touch and gestures | [foundations/input-methods.md](foundations/input-methods.md) |
+| supporting right-to-left languages: mirroring, icons, time | [foundations/rtl.md](foundations/rtl.md) |
+| writing UI text, alt text or notifications; handling truncation and larger text | [foundations/writing.md](foundations/writing.md) |
+| naming or using design tokens (reference, system, component) | [foundations/tokens.md](foundations/tokens.md) |
 | working with a button, icon button, button group, split button or FAB | [components/actions.md](components/actions.md) |
 | working with a card, list, divider, carousel, dialog, bottom or side sheet | [components/containment.md](components/containment.md) |
 | working with a snackbar, tooltip, badge, progress or loading indicator | [components/feedback.md](components/feedback.md) |
-| working with a text field, checkbox, radio button, switch, chip, menu, slider, search, date or time picker | [components/inputs.md](components/inputs.md) |
-| working with an app bar, navigation bar, navigation rail, tabs or a toolbar | [components/navigation.md](components/navigation.md) |
+| working with a text field, select, checkbox, radio button, switch, chip, menu, slider, search, scroll field, date or time picker | [components/inputs.md](components/inputs.md) |
+| working with an app bar, navigation bar, navigation rail, navigation drawer, tabs or a toolbar | [components/navigation.md](components/navigation.md) |
 | choosing a component for a task | [patterns/component-selection.md](patterns/component-selection.md) |
 | placing a field error, snackbar, dialog or wait indicator | [patterns/feedback-placement.md](patterns/feedback-placement.md) |
 | building a form: fields, labels, required fields, errors, submitting | [patterns/forms.md](patterns/forms.md) |
-| making a screen work across window sizes | [patterns/adaptive-layouts.md](patterns/adaptive-layouts.md) |
+| making a screen work across window sizes, including desktop | [patterns/adaptive-layouts.md](patterns/adaptive-layouts.md) |
 | reviewing UI against M3 (a checklist of mistakes) | [patterns/anti-patterns.md](patterns/anti-patterns.md) |
 
 ## Source contract
