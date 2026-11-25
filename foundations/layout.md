@@ -75,7 +75,8 @@ Custom layouts build on these, or layer panes (levitate) for focused tasks such 
 
 - Spacing is on an **8dp scale; `space100` = 8dp**, and new tokens follow the multiplier (`space225` = 18dp) ([spacing → overview](../sources/m3/styles_spacing.md#spacing), [customizing the system](../sources/m3/styles_spacing.md#add-custom-system-spacing--patterns)). The web has no implementation of the spacing tokens yet ([availability](../sources/m3/styles_spacing.md#availability--resources)).
 - **Padding** is inside an element, a **gap** between elements in a container, a **margin** outside an element. **Use padding and gaps before margins**: Material rarely uses margins inside components; margins are for spacing beyond the parent's padding, or for layouts ([parts of spacing](../sources/m3/styles_spacing.md#parts-of-spacing)).
-- Leading and trailing swap in right-to-left languages ([same](../sources/m3/styles_spacing.md#parts-of-spacing)).
+- Leading and trailing swap in right-to-left languages ([same](../sources/m3/styles_spacing.md#parts-of-spacing); [right-to-left](rtl.md)).
+- The layout overview measures padding **in 4dp steps**; window **margins** grow with the window class; a **spacer** between panes is **24** wide and may hold a drag handle whose target overlaps the panes slightly ([layout overview → padding](../sources/m3/foundations_layout_layout-overview.md#padding), [margins](../sources/m3/foundations_layout_layout-overview.md#margins), [spacers](../sources/m3/foundations_layout_layout-overview.md#spacers)).
 - Keep the same spacing when text is scaled to 200% ([spacing complements text scaling](../sources/m3/styles_spacing.md#spacing-complements-text-scaling)).
 - Use tokens in custom components instead of hard-coded values ([system tokens](../sources/m3/styles_spacing.md#system-tokens)).
 

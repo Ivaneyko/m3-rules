@@ -9,7 +9,7 @@ Start with [SKILL.md](SKILL.md): it routes a task to the one or two files it nee
 | Path | What |
 | --- | --- |
 | `SKILL.md` | The entry point, in [Agent Skills](https://agentskills.io) format: which file to read for a task, the source contract, the M3 Expressive status |
-| `foundations/` | States, colour roles, typography, shape, elevation, motion, layout, icons and accessibility |
+| `foundations/` | States, colour roles, typography, shape, elevation, motion, layout, icons and accessibility, input methods, right-to-left, writing, design tokens |
 | `components/` | Each component: when to use it, its spec values, its guidelines, accessibility, and the sources |
 | `patterns/` | Choosing a component, placing feedback, forms, adaptive layouts, anti-patterns |
 | `sources/` | The snapshot every rule is checked against ([SNAPSHOT](sources/SNAPSHOT.md)) |
